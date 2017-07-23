@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-	fmt.Println("Hello gurl")
+	res, err := http.Get("https://api.github.com/users/octocat/orgs")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(res)
 }
